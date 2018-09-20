@@ -17,8 +17,8 @@ var banner = ['/*!\n',
   '\n'
 ].join('');
 
-// Copy third party libraries from /node_modules into /vendor
-gulp.task('vendor', function() {
+// Copy third party libraries from /node_modules into /Vendor_test
+gulp.task('Vendor_test', function() {
 
   // Bootstrap
   gulp.src([
@@ -26,26 +26,26 @@ gulp.task('vendor', function() {
       '!./node_modules/bootstrap/dist/css/bootstrap-grid*',
       '!./node_modules/bootstrap/dist/css/bootstrap-reboot*'
     ])
-    .pipe(gulp.dest('./vendor/bootstrap'))
+    .pipe(gulp.dest('./Vendor_test/bootstrap'))
 
   // Font Awesome
   gulp.src([
       './node_modules/@fortawesome/**/*',
     ])
-    .pipe(gulp.dest('./vendor'))
+    .pipe(gulp.dest('./Vendor_test'))
 
   // jQuery
   gulp.src([
       './node_modules/jquery/dist/*',
       '!./node_modules/jquery/dist/core.js'
     ])
-    .pipe(gulp.dest('./vendor/jquery'))
+    .pipe(gulp.dest('./Vendor_test/jquery'))
 
   // jQuery Easing
   gulp.src([
       './node_modules/jquery.easing/*.js'
     ])
-    .pipe(gulp.dest('./vendor/jquery-easing'))
+    .pipe(gulp.dest('./Vendor_test/jquery-easing'))
 
 });
 
@@ -103,7 +103,7 @@ gulp.task('js:minify', function() {
 gulp.task('js', ['js:minify']);
 
 // Default task
-gulp.task('default', ['css', 'js', 'vendor']);
+gulp.task('default', ['css', 'js', 'Vendor_test']);
 
 // Configure the browserSync task
 gulp.task('browserSync', function() {
